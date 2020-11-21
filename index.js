@@ -4,17 +4,17 @@ const config = require("./config.json");
 const mysql = require("mysql");
 const util = require("util");
 const con = mysql.createConnection({
-  host: `${mysql_host}`,
-  user: `${mysql_user}`,
-  password: `${mysql_pass}`,
-  database: `${mysql_database}`
+  host: `${config.mysql_host}`,
+  user: `${config.mysql_user}`,
+  password: `${config.mysql_pass}`,
+  database: `${config.mysql_database}`
 })
 const conMul = mysql.createConnection({
   multipleStatements: true,
-  host: `${mysql_host}`,
-  user: `${mysql_user}`,
-  password: `${mysql_pass}`,
-  database: `${mysql_database}`
+  host: `${config.mysql_host}`,
+  user: `${config.mysql_user}`,
+  password: `${config.mysql_pass}`,
+  database: `${config.mysql_database}`
 })
 
 client.on("ready", () => {
