@@ -31,11 +31,11 @@ client.on("message", message => {
   if (message.content.indexOf(config.prefix) !== 0) return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  const Guild = client.guilds.cache.get(config.guildid);
+  const Member = Guild.members.cache.get(message.author.id);
 
   switch(command) {
     case 'join':
-      const Guild = client.guilds.cache.get(config.guildid);
-      const Member = Guild.members.cache.get(message.author.id);
       if (message.guild === null) {
         if (!Member.voice.channel) return message.reply("You need to be in the Private Lobby Voice Channel to be able to queue or rejoin a game.")
         if (Member.voice.channel.id === config.lobby_VC_ID) {
@@ -82,8 +82,6 @@ client.on("message", message => {
       }
       break;
     case 'host':
-      const Guild = client.guilds.cache.get(config.guildid);
-      const Member = Guild.members.cache.get(message.author.id);
       conMul.query(`SELECT * FROM private WHERE channelid = '${Member.voice.channelID}'; SET @count = found_rows(); SELECT @count AS 'count';`, [1, 2, 3], function (err, results, count) {
         if (util.inspect(results[0].length) === "0") {
           Member.send("You are not in a Private Voice Channel! You need to be in the Lobby VC to be able to create Private Voice Channels.");
@@ -163,8 +161,6 @@ client.on("message", message => {
       })
       break;
     case 'create':
-      const Guild = client.guilds.cache.get(config.guildid);
-      const Member = Guild.members.cache.get(message.author.id);
         if (message.guild === null) {
           if (!Member.voice.channel) return message.reply("You need to be in the \"Lobby VC\" to be able to queue or rejoin a game.")
           if (Member.voice.channel.id === config.lobby_VC_ID) {
