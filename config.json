@@ -1,0 +1,12 @@
+{
+    "token": "CHANGE_THIS",
+    "prefix": "!",
+    "guildid": "123456789012345678",
+    "lobby_VC_ID": "123456789012345678",
+    "private_VC_Category_ID": "123456789012345678",
+
+    "mysql_host": "localhost",
+    "mysql_user": "username",
+    "mysql_pass": "password",
+    "mysql_database": "dbname"
+}
