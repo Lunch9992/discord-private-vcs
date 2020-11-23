@@ -31,8 +31,10 @@ It is a free-to-use and modifiable open-source bot that acts as a Private Voice 
 #### MySQL:
 
 1. Install a [MySQL Server](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/).
-2. Create a MySQL Table using this command: ```CREATE TABLE private (roomcode TEXT(20) NOT NULL, channelid VARCHAR(18) DEFAULT '' NOT NULL, userid VARCHAR(18) DEFAULT '' NOT NULL);```.
-3. This server needs to be running at all time, or at least only when the bot is online.
+2. Create a MySQL Database using this command: ```CREATE DATABASE <database_name>```.
+3. Navigate to your Database using this command: ```USE <database_name>```.
+4. Create a MySQL Table using this command: ```CREATE TABLE private (roomcode TEXT(20) NOT NULL, channelid VARCHAR(18) DEFAULT '' NOT NULL, userid VARCHAR(18) DEFAULT '' NOT NULL);```.
+5. This server needs to be running at all times, or at least only when the bot is online.
 
 #### NodeJS:
 
